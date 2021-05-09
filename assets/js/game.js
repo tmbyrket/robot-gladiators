@@ -7,10 +7,10 @@ var enemyNames = ['Roborto', 'Amy Android', 'Robo Trumble'];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
-var fight = function () {
-    //alert players that they are starting the round
-    window.alert("welcome to robot gladiators!");
-
+var fight = function(enemyName) {
+    //repeat and exeecute as long as the enemy-robot is alive
+    while(enemyHealth > 0) {
+  
     //prompt player to fight or skip
     var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.");
 
@@ -19,20 +19,20 @@ var fight = function () {
         //remove enemy's health by substracting the amount set in the playerAtack variable
         enemyHealth = enemyHealth - playerAttack;
         console.log(
-            playerName + ' attacked ' + enemyNames + '.' + enemyNames + ' now has ' + enemyHealth + ' health remaining.'
+            playerName + ' attacked ' + enemyName + '.' + enemyName + ' now has ' + enemyHealth + ' health remaining.'
         );
 
         //check enemy's health
         if (enemyHealth <= 0) {
-            window.alert(enemyNames + ' has died');
+            window.alert(enemyName + ' has died');
         } else {
-            window.alert(enemyNames + ' still has ' + enemyHealth + " health left.");
+            window.alert(enemyName + ' still has ' + enemyHealth + " health left.");
         }
 
         //remove player's health by subtracting the amount set in the enemyAttack variable
         playerHealth = playerHealth - enemyAttack;
         console.log(
-            enemyNames + ' attacked ' + playerName + '.' + playerName + ' now has ' + playerHealth + ' health remaining.'
+            enemyName + ' attacked ' + playerName + '.' + playerName + ' now has ' + playerHealth + ' health remaining.'
         );
 
         //check player's health
@@ -58,10 +58,14 @@ var fight = function () {
             fight ();
         }
     }
+    }
 }
 
+
 for(var i = 0; i < enemyNames.length; i++) {
-    fight(enemyNames[i]);
+    var pickedEnemyName = enemyNames[i];
+    enemyHealth = 50;
+    fight(pickedEnemyName);
 }   
 
 
@@ -72,4 +76,3 @@ for(var i = 0; i < enemyNames.length; i++) {
 
 //      * defeat all enemy-robots
 //LOSE - player robot's health is zero or less
-
