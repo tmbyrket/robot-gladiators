@@ -3,28 +3,9 @@ var playerHealth = 100;
 var playerAttack = 10;
 var playerMoney = 10;
 
-//you can also log multiple values at one like this
-console.log(playerName, playerAttack, playerHealth, playerMoney)
-
 var enemyNames = ['Roborto', 'Amy Android', 'Robo Trumble'];
-console.log(enemyNames);
-console.log(enemyNames[0]);
-console.log(enemyNames[1]);
-console.log(enemyNames[2]);
-console.log(enemyNames.length);
-for(var i = 0; i<enemyNames.length; i++) {
-    console.log(enemyNames[i]);
-    console.log(i);
-    console.log(enemyNames[i] + ' is at ' + i + ' index');
-}   
 var enemyHealth = 50;
 var enemyAttack = 12;
-
-//Game states
-//WIN - player robot has deated all enemy robots
-//      * Fight all enemy-robots
-//      * defeat all enemy-robots
-//LOSE - player robot's health is zero or less
 
 var fight = function () {
     //alert players that they are starting the round
@@ -79,4 +60,16 @@ var fight = function () {
     }
 }
 
-//fight ();
+for(var i = 0; i < enemyNames.length; i++) {
+    fight(enemyNames[i]);
+}   
+
+
+//Game states
+//WIN - player robot has defeated all enemy robots
+//      * Fight all enemy-robots
+
+
+//      * defeat all enemy-robots
+//LOSE - player robot's health is zero or less
+
